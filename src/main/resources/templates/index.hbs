@@ -1,0 +1,21 @@
+<html>
+<head>
+    <title>Spotify API test</title>
+</head>
+<body>
+    <h1>Spotify Web Api test</h1>
+    {{#if api}}
+        <p>You're logged in!</p>
+        <form action="/submit-playlist-for-modifications" method="get">
+            <p>Have you ever wanted to only have happy songs in your playlist? Enter a happiness value between 0-1 and one of your
+                playlist names (case sensitive) and we'll remove all songs below that happiness.</p>
+
+            <input style="width: 250px;" type="text" placeholder="Your playlist name" name="playlistName" />
+            <input style="width: 200px;" type="number" min="0" max="1" step="0.001" placeholder="Happiness level (0-1)" name="valenceLevel" />
+            <input type="submit" value="Submit">
+        </form>
+    {{else}}
+        <p>Click <a href="/redirect-to-auth">here</a> to log in.</p>
+    {{/if}}
+</body>
+</html>
