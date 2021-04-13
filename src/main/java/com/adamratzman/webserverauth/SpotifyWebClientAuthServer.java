@@ -30,7 +30,7 @@ public class SpotifyWebClientAuthServer {
             null
     );
 
-    public static void main(String[] args) {
+   /* public static void main(String[] args) {
         port(80);
 
         get("/", (request, response) -> {
@@ -107,5 +107,5 @@ public class SpotifyWebClientAuthServer {
             }
             return null;
         });
-    }
+    }*/
 }
