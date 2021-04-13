@@ -1,14 +1,16 @@
 package com.adamratzman;
 
 import com.adamratzman.spotify.SpotifyApiBuilderKt;
+import com.adamratzman.spotify.SpotifyAppApi;
+import com.adamratzman.spotify.models.PagingObject;
 import com.adamratzman.spotify.models.SimpleAlbum;
 import com.adamratzman.spotify.models.SpotifyCategory;
 import kotlin.Unit;
 
 public class SpotifyBrowseApiInterop {
     public static void main(String[] args) throws InterruptedException {
-        var api = SpotifyApiBuilderKt.spotifyAppApi(Const.clientId, Const.clientSecret).buildRestAction(true).complete();
-        var browseReleases = api.getBrowse().getNewReleasesRestAction(20, null, null).complete();
+        SpotifyAppApi api = SpotifyApiBuilderKt.spotifyAppApi(Const.clientId, Const.clientSecret).buildRestAction(true).complete();
+        PagingObject<SimpleAlbum> browseReleases = api.getBrowse().getNewReleasesRestAction(20, null, null).complete();
         for (SimpleAlbum album : browseReleases.getItems()) {
             System.out.println(album.getName());
         }
