@@ -5,9 +5,10 @@
 <body>
     <h1>Playlist modification</h1>
     {{#if success}}
-        <p>Successfully added {{track.name}} to your playlist!</p>
+        <p>Successfully added {{track.name}} to your playlist! Go <a href="/">back</a>.</p>
     {{else}}
         <p>Oh no... failed. Please go back to the <a href="/">homepage</a>.</p>
+        {{#if message}}<b>Error:</b> {{message}}{{/if}}
     {{/if}}
 </body>
 </html>
